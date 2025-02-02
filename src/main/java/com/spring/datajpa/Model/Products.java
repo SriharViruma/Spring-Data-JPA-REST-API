@@ -28,12 +28,7 @@ public class Products {
     @JsonProperty("quantity")
     private int quantity;
 
-//    @Override
-//    public String toString(){
-//        return "id: "+id+
-//                        "\n name:"+name+
-//                        "\n price: "+price+
-//                        "\n quantity: "+quantity;
-//    }
+    @JsonProperty("type")
+    private String type;
 
 }

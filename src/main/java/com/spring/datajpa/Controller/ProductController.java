@@ -3,11 +3,13 @@ package com.spring.datajpa.Controller;
 import com.spring.datajpa.Model.Products;
 import com.spring.datajpa.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 public class ProductController {
     @Autowired
     private ProductService productService;
@@ -23,8 +25,9 @@ public class ProductController {
     }
 
     @PostMapping("/product")
-    public void AddProduct(@RequestBody Products prod){
+    public ResponseEntity<Integer> AddProduct(@RequestBody Products prod){
         productService.AddProduct(prod);
+        return ResponseEntity.ok(200);
     }
 
     @PutMapping("/product")
